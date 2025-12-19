@@ -9,6 +9,7 @@ class Program
         //LargestOfThree.Run();
         //LeapYearChecker.Run();
         //AdmissionEligibility.Run();
-        ElectricityBill.Run();
+        //ElectricityBill.Run();
+        VowelOrConsonant.Run();
     }
 }
