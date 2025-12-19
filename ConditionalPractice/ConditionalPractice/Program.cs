@@ -7,6 +7,7 @@ class Program
         Console.WriteLine("Hello, World!");
         //Height.Run();
         //LargestOfThree.Run();
-        LeapYearChecker.Run();
+        //LeapYearChecker.Run();
+        AdmissionEligibility.Run();
     }
 }
