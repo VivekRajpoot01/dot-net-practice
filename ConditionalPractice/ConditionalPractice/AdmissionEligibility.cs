@@ -16,19 +16,14 @@ public class AdmissionEligibility
 
         bool eligible = false;
 
-        if (math >= 65)
-        {
-            eligible = true;
-        }else if (phy >= 55)
-        {
-            eligible = true;
-        }else if (chem >= 50)
-        {
-            eligible = true;
-        }else if ((math + phy + chem >= 180) ||(math+phy >= 140))
+        if (math >= 65 &&
+        phy >= 55 &&
+        chem >= 50 &&
+        ((math + phy + chem >= 180) ||(math+phy >= 140)))
         {
             eligible = true;
         }
+       
 
         if (eligible)
         {

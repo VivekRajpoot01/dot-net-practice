@@ -8,6 +8,7 @@ class Program
         //Height.Run();
         //LargestOfThree.Run();
         //LeapYearChecker.Run();
-        AdmissionEligibility.Run();
+        //AdmissionEligibility.Run();
+        ElectricityBill.Run();
     }
 }
