@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ConditionalPractice")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d5f6436072809a59896486d01d8ad41ac8d88c60")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+93807ca0b2c9b33160b55399a0e7b5061d663886")]
 [assembly: System.Reflection.AssemblyProductAttribute("ConditionalPractice")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ConditionalPractice")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
