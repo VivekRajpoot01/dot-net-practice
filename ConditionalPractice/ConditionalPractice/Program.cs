@@ -11,6 +11,7 @@ class Program
         //AdmissionEligibility.Run();
         //ElectricityBill.Run();
        //VowelOrConsonant.Run();
-       QuadraticEquation.Run();
+       //QuadraticEquation.Run();
+       TriangleType.Run();
     }
 }
