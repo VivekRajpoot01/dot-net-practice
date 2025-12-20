@@ -13,6 +13,7 @@ class Program
        //VowelOrConsonant.Run();
        //QuadraticEquation.Run();
        //TriangleType.Run();
-       QuadrantFinder.Run();
+       //QuadrantFinder.Run();
+       GradeDiscription.Run();
     }
 }
