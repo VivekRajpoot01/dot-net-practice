@@ -10,6 +10,7 @@ class Program
         //LeapYearChecker.Run();
         //AdmissionEligibility.Run();
         //ElectricityBill.Run();
-        VowelOrConsonant.Run();
+       //VowelOrConsonant.Run();
+       QuadraticEquation.Run();
     }
 }
