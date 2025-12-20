@@ -12,6 +12,7 @@ class Program
         //ElectricityBill.Run();
        //VowelOrConsonant.Run();
        //QuadraticEquation.Run();
-       TriangleType.Run();
+       //TriangleType.Run();
+       QuadrantFinder.Run();
     }
 }
