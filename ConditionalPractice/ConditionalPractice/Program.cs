@@ -14,6 +14,7 @@ class Program
        //QuadraticEquation.Run();
        //TriangleType.Run();
        //QuadrantFinder.Run();
-       GradeDiscription.Run();
+       //GradeDiscription.Run();
+       ValidDateCheck.Run();
     }
 }
