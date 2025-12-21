@@ -5,6 +5,7 @@ public class Program
     public static void Main()
     {
         //FibonacciSeries.Run();
-        PrimeNumber.Run();
+        //PrimeNumber.Run();
+        ArmstrongNumber.Run();
     }
 }
