@@ -4,6 +4,7 @@ public class Program
 {
     public static void Main()
     {
-        FibonacciSeries.Run();
+        //FibonacciSeries.Run();
+        PrimeNumber.Run();
     }
 }
