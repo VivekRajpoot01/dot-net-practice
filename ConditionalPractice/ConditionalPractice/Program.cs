@@ -15,6 +15,7 @@ class Program
        //TriangleType.Run();
        //QuadrantFinder.Run();
        //GradeDiscription.Run();
-       ValidDateCheck.Run();
+       //ValidDateCheck.Run();
+       RockPaperScissors.Run();
     }
 }
