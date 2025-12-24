@@ -6,6 +6,7 @@ public class Program
     {
         //FibonacciSeries.Run();
         //PrimeNumber.Run();
-        ArmstrongNumber.Run();
+        //ArmstrongNumber.Run();
+        ReverseAndPalindrome.Run();
     }
 }
