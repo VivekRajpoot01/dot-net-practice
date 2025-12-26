@@ -13,3 +13,201 @@ Input: feet (int)
 Output: centimeters (double)
 Constraints:
 0 <= feet <= 1e6"
+
+=========================================================
+Q3. Given a person's height in centimeters, return the height category:
+- ""Short""  : height < 150
+- ""Average"": 150 <= height < 180
+- ""Tall""   : height >= 180
+Input: heightCm (int)
+Output: category (string)
+Constraints:
+0 <= heightCm <= 300"
+
+=========================================================
+Q4. Write a method that returns the largest of three integers using conditional logic.
+Input: a (int), b (int), c (int)
+Output: largest (int)
+Constraints:
+-1e9 <= a,b,c <= 1e9"
+
+
+========================================================
+Q5. Convert a number of seconds into a string formatted as m:ss.
+Seconds must be 2 digits (leading zero if needed).
+Input: totalSeconds (int)
+Output: formatted (string)
+Examples:
+125 -> ""2:05""
+60  -> ""1:00""
+Constraints:
+0 <= totalSeconds <= 1e9"
+
+==========================================================
+Q6. Given an integer array, sum only positive numbers until you reach 0.
+- If an element is 0, stop processing (break).
+- If an element is negative, ignore it (continue).
+Input: nums (int[])
+Output: sum (int)
+Constraints:
+0 <= nums.Length <= 1e5
+-1e9 <= nums[i] <= 1e9"
+
+
+=====================================
+Q7. Return the multiplication table row for a number n from 1..upto.
+Example: n=3, upto=5 -> [3,6,9,12,15]
+Input: n (int), upto (int)
+Output: row (int[])
+Constraints:
+0 <= upto <= 1e5
+-1e4 <= n <= 1e4
+
+
+===================================================
+Q8. Given an array of strings, sum only the values that can be parsed as 32-bit integers.
+Use int.TryParse (ignore invalid and overflow values).
+Input: tokens (string[])
+Output: sum (int)
+Constraints:
+0 <= tokens.Length <= 1e5
+
+
+======================================================
+Q9. Compute the Greatest Common Divisor (GCD) of two non-negative integers using recursion (Euclid's algorithm).
+Input: a (int), b (int)
+Output: gcd (int)
+Constraints:
+0 <= a,b <= 2*10^9"
+
+
+========================================================
+Q10. Simulate a bank account.
+- Start with an initial balance.
+- For each transaction:
+  - if transaction >= 0: deposit
+  - if transaction < 0 : withdraw (only if enough balance; otherwise ignore)
+Return the final balance.
+Input: initialBalance (int), transactions (int[])
+Output: finalBalance (int)
+Constraints:
+0 <= transactions.Length <= 1e5
+-1e9 <= transactions[i] <= 1e9"
+
+
+==========================================================
+Q11. Given an object array that may contain ints, strings, bools, nulls, etc., sum only the integer values.
+Use pattern matching (is int x).
+Input: values (object[])
+Output: sum (int)
+Constraints:
+0 <= values.Length <= 1e5
+
+
+=====================================================
+Q12.Given an integer array, return a summary string:
+min=<min>; max=<max>; sum=<sum>; avg=<avg>
+Average must be rounded to 2 decimals (AwayFromZero).
+Input: nums (int[])
+Output: summary (string)
+Constraints:
+1 <= nums.Length <= 1e5
+
+
+==========================================================
+Q13. Implement a key-value store using an indexer and process commands.
+Commands:
+- ""SET key value"" : set key to value
+- ""ADD key delta"" : add delta to existing value (missing keys start at 0)
+- ""GET key""       : output current value (missing keys output 0)
+Return all GET outputs in order.
+Input: commands (string[])
+Output: results (int[])
+Constraints:
+0 <= commands.Length <= 1e5"
+
+
+=========================================================
+Q14. Compute total payroll using inheritance and polymorphism.
+Each input string describes an employee:
+- ""H rate hours""           (HourlyEmployee) pay = rate * hours
+- ""S monthlySalary""        (SalariedEmployee) pay = monthlySalary
+- ""C commission baseSalary"" (CommissionEmployee) pay = baseSalary + commission
+Return the total pay as a decimal rounded to 2 decimals.
+Input: employees (string[])
+Output: totalPay (decimal)
+Constraints:
+0 <= employees.Length <= 1e5"
+
+
+=========================================================
+Q15. Compute the total area of shapes.
+Each input string is one shape:
+- ""C r""      Circle (radius r)
+- ""R w h""    Rectangle (width w, height h)
+- ""T b h""    Triangle (base b, height h), area = 0.5*b*h
+Use an abstract base class and an interface for Area.
+Return total area rounded to 2 decimals (AwayFromZero).
+Input: shapes (string[])
+Output: totalArea (double)
+Constraints:
+0 <= shapes.Length <= 1e5
+0 <= dimensions <= 1e6"
+
+
+==========================================================
+Q16. Merge two already-sorted arrays into a single sorted array.
+Implement it as a generic method using the constraint:
+where T : IComparable<T>
+Input: a (T[]), b (T[])
+Output: merged (T[])
+Constraints:
+0 <= a.Length + b.Length <= 2*10^5"
+
+
+==============================================================
+Q17. Compute the average of non-null values in a nullable double array.
+- Ignore nulls.
+- If there are no non-null values, return null.
+Round to 2 decimals (AwayFromZero).
+Input: values (double?[])
+Output: average (double?)
+Constraints:
+0 <= values.Length <= 2*10^5"
+
+
+=======================================================
+Q18. Implement a custom DistinctBy extension method (do NOT use LINQ's DistinctBy).
+Input items are strings formatted as ""id:name"".
+Return the names for the first occurrence of each distinct id (preserve input order).
+Input: items (string[])
+Output: distinctNames (string[])
+Constraints:
+0 <= items.Length <= 2*10^5"
+
+
+================================================
+Q19. Given strings formatted as ""Name:Score"", build a list of Student objects.
+Filter students with Score >= minScore, sort by Score descending then Name ascending,
+and serialize the result to a JSON array using System.Text.Json.
+Use a C# record for Student.
+Input: items (string[]), minScore (int)
+Output: json (string)
+Constraints:
+0 <= items.Length <= 2*10^5"
+
+
+============================================================
+Q20. Evaluate a simple arithmetic expression of the form ""a op b"" (spaces required),
+where op is one of: +, -, *, /.
+Return:
+- the integer result as a string for valid expressions
+- ""Error:DivideByZero""   if b==0 for division
+- ""Error:InvalidNumber""  if a or b is not an int
+- ""Error:UnknownOperator"" if op is not one of + - * /
+- ""Error:InvalidExpression"" if format is invalid
+Input: expression (string)
+Output: result (string)
+Constraints:
+1 <= expression.Length <= 100"
+
