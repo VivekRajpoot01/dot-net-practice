@@ -25,5 +25,6 @@ public class Q3
 
         Console.WriteLine("=====================Output=======================");
         Console.Write($"Height Category: {category}");
+    }    
     
 }
