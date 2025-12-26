@@ -4,3 +4,12 @@ Input: radius (double)
 Output: area (double)
 Constraints:
 0 <= radius <= 1e6"
+
+=======================================================
+Q2. Write a method that converts feet to centimeters.
+Use: 1 foot = 30.48 cm
+Round the result to 2 decimal places (MidpointRounding.AwayFromZero).
+Input: feet (int)
+Output: centimeters (double)
+Constraints:
+0 <= feet <= 1e6"

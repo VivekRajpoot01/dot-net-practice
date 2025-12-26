@@ -5,6 +5,7 @@ public class Program
 {
     public static void Main()
     {
-        Q1.Run();
+        //Q1.Run();
+        Q2.Run();
     }
 }
