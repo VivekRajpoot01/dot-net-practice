@@ -13,13 +13,16 @@ namespace LPU_DAL
 
         public StudentDAO()
         {
-            StudentList = new List<Student>()
-            {
-                new Student(){Id = 101, Name = "Vivek", Course = Student.CourseType.CSE, Address = "UP"}
-                new Student(){Id = 102, Name = "Pawas", Course = Student.CourseType.CSE, Address = "Bihar"}
-                new Student(){Id = 103, Name = "Shiva", Course = Student.CourseType.Mechanical, Address = "UP"}
-                new Student(){Id = 104, Name = "Nishant", Course = Student.CourseType.Civil, Address = "Tamil Naidu"}
+            if(StudentList == null) {
+                StudentList = new List<Student>()
+                {
+                    new Student(){Id = 101, Name = "Vivek", Course = Student.CourseType.CSE, Address = "UP"},
+                    new Student(){Id = 102, Name = "Pawas", Course = Student.CourseType.CSE, Address = "Bihar"},
+                    new Student(){Id = 103, Name = "Shiva", Course = Student.CourseType.Mechanical, Address = "UP"},
+                    new Student(){Id = 104, Name = "Nishant", Course = Student.CourseType.Civil, Address = "Tamil Naidu"}
+                };
             }
+            
         }
         public Student SearchStudentById(int rollNo)
         {
