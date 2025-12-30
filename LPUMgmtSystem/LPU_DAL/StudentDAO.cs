@@ -69,6 +69,6 @@ namespace LPU_DAL
             throw new NotImplementedException();
         }
 
-        public Student
+        
     }
 }
