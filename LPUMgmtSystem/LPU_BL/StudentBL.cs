@@ -21,7 +21,7 @@ namespace LPU_BL
 
         public bool EnrollStudent(Student sObj)
         {
-            throw new NotImplementedException();
+            return sDao.EnrollStudent(sObj);
         }
 
         public Student SearchStudentById(int rollNo)
