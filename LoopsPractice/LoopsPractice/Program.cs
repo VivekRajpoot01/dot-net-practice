@@ -7,6 +7,7 @@ public class Program
         //FibonacciSeries.Run();
         //PrimeNumber.Run();
         //ArmstrongNumber.Run();
-        ReverseAndPalindrome.Run();
+        //ReverseAndPalindrome.Run();
+        GCDandLCM.Run();
     }
 }
