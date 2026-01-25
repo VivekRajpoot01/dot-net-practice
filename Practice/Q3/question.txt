@@ -1,0 +1,74 @@
+Scenario: Bank Account Validation
+
+The bank needs an application to handle Deposits and Withdrawals. You must implement safeguards to ensure that deposit/withdrawal amounts are positive and that withdrawals do not exceed the balance. If these rules are broken, the system must throw specific exceptions, catch them, and display the appropriate error message.
+Requirements
+1. Class Account
+• Properties (Public):
+    ◦ AccountNumber (string)
+    ◦ Balance (decimal)
+• Methods:
+    ◦ public decimal Deposit(decimal amount)
+        ▪ Logic: If amount is greater than 0, add it to Balance and return the new balance.
+        ▪ Exception: If amount is less than or equal to 0, throw an ArgumentException with the message: "Deposit amount must be positive."
+    ◦ public decimal Withdraw(decimal amount)
+        ▪ Logic:
+            • If amount is less than or equal to 0, throw an ArgumentException with the message: "Withdrawal amount must be positive."
+            • If amount is greater than Balance, throw an InvalidOperationException with the message: "Insufficient funds."
+            • Otherwise, subtract amount from Balance and return the new balance.
+2. Class Program (Main Method)
+• Input Logic:
+    1. Read 1. Deposit or 2. Withdraw (Loop not required).
+    2. Read AccountNumber and Balance.
+    3. Create an Account object and set the properties.
+    4. If Deposit (1): Read the amount to deposit.
+    5. If Withdraw (2): Read the amount to withdraw.
+• Exception Handling Logic:
+    ◦ You must wrap your method calls (Deposit or Withdraw) in try-catch blocks.
+    ◦ Catch ArgumentException and InvalidOperationException.
+    ◦ If an exception occurs: Print the exception message (e.g., "Insufficient funds.").
+    ◦ Always: After the operation (successful or failed), print the balance.
+• Output Format:
+    ◦ Exception Message (if any).
+    ◦ "Balance amount [Balance]"
+Sample Input/Output
+Sample 1 (Successful Deposit)
+1. Deposit
+2. Withdraw
+Enter the choice
+1
+Enter the account number
+AC1001
+Enter the balance
+3000
+Enter the amount to be deposit
+500
+Output 1
+Balance amount 3500
+Sample 2 (Invalid Deposit)
+1. Deposit
+2. Withdraw
+Enter the choice
+1
+Enter the account number
+AC1001
+Enter the balance
+500
+Enter the amount to be deposit
+0
+Output 2
+Deposit amount must be positive.
+Balance amount 500
+Sample 3 (Insufficient Funds)
+1. Deposit
+2. Withdraw
+Enter the choice
+2
+Enter the account number
+AC2005
+Enter the balance
+500
+Enter the amount to be withdraw
+1000
+Output 3
+Insufficient funds.
+Balance amount 500
