@@ -1,0 +1,49 @@
+--------------------------------------------------------------------------------
+Practice Question 1: Inheritance and Price Calculation
+Topic: Object-Oriented Programming (Classes, Inheritance, Methods) Source Context: This is a classic "M1" style question found in your curriculum materials.
+Scenario
+You are building an application for "Bejoy Computers" to calculate the price of a machine based on its configuration. You need to handle data for a base Computer and a specific Desktop.
+Requirements
+1. Class Computer Create a class named Computer with the following public properties:
+• Processor (string)
+• RamSize (int)
+• HardDiskSize (int)
+• GraphicCard (int)
+2. Class Desktop Create a class named Desktop that inherits from Computer.
+• Add public properties: MonitorSize (int), PowerSupplyVolt (int).
+• Implement a method: public double DesktopPriceCalculation().
+3. Calculation Logic Inside DesktopPriceCalculation, return the total price based on this formula: 
+Price=ProcessorCost+(RamSize×200)+(HardDiskSize×1500)+(GraphicCard×2500)+(MonitorSize×250)+(PowerSupplyVolt×20)
+Processor Costs (Case-sensitive):
+• "i3": 1500
+• "i5": 3000
+• "i7": 4500
+• Any other processor: 0 cost (or handle as standard)
+4. Class Program (Main Method) In the Main method, you must:
+1. Read the inputs in the exact order shown in the Sample Input.
+2. Create an object of the Desktop class.
+3. Assign the values to the object.
+4. Call DesktopPriceCalculation().
+5. Print the result strictly as: "Desktop price is [Result]"
+Sample Input/Output
+Input:
+Enter the processor
+i3
+Enter the ram size
+8
+Enter the hard disk size
+32
+Enter the graphic card size
+32
+Enter the monitor size
+22
+Enter the power supply volt
+240
+Output:
+Desktop price is 141400
+⚠️ Critical Exam Rules
+1. Do not use Environment.Exit() to terminate the program.
+2. Keep all classes, properties, and methods public.
+3. Output text must match exactly (case-sensitive).
+
+--------------------------------------------------------------------------------
