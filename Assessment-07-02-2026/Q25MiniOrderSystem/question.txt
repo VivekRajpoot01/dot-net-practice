@@ -1,0 +1,9 @@
+End-to-End Mini Order System (OOP + Validation + Exceptions)
+Design a mini order system with entities: Customer, Product, Order, OrderItem, Payment.
+Implement:
+• Add to cart
+• Place order (validate stock)
+• Deduct stock atomically
+• Apply coupon with rules
+• Generate invoice number
+• Handle failures with meaningful exceptions.

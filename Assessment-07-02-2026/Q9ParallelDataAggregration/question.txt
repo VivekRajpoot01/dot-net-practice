@@ -1,0 +1,6 @@
+Parallel Data Aggregation (PLINQ/Tasks)
+Given List<Sale {Region, Category, Amount, Date}>, compute:
+• Total sales by Region
+• Top category per Region
+• Best sales day overall
+Use parallel processing safely and produce deterministic output ordering.
