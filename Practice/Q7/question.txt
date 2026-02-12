@@ -1,0 +1,59 @@
+
+📝 Scenario: Movie Ticket Booking
+Sam and his friends are planning to watch a movie. The theater offers different seating types (VIP, Premium, Standard). You need to create an application to calculate the total ticket fare using a Static Class to hold the movie details.
+⚙️ Requirements
+1. Static Class Movie
+• Properties (Public Static):
+    ◦ MovieName (string)
+    ◦ ScreenNumber (string)
+    ◦ TicketPrice (double)
+    ◦ NoOfTickets (int)
+2. Class MovieUtility
+• Method:
+    ◦ public double CalculateTicketFare(string seatingType)
+    ◦ Logic:
+        1. Base Cost: TicketPrice * NoOfTickets
+        2. Additional Fee: 2 per ticket (i.e., 2 * NoOfTickets)
+        3. Surcharge:
+            • VIP: 50% of the total ticket cost.
+            • Premium: 30% of the total ticket cost.
+            • Standard: No surcharge.
+        4. Formula: Base Cost + Additional Fee + Surcharge
+    ◦ Note: seatingType is Case-Sensitive.
+3. Class Program (Main Method)
+• Logic:
+    1. Get inputs: Movie Name, Screen Number, No of Tickets, Ticket Price, Seating Type.
+    2. Important: Assign these values directly to the Static Properties of the Movie class (e.g., Movie.MovieName = ...).
+    3. Create an instance of MovieUtility (this class is not static).
+    4. Call CalculateTicketFare.
+    5. Output: "The ticket price is [Result]"
+🔍 Sample Input/Output
+Sample 1
+Enter the movie name
+Avatar 2
+Enter the screen number
+A7
+Enter the no of tickets
+5
+Enter the ticket price
+250
+Enter the seating type
+Premium
+Output 1
+The ticket price is 1635
+(Math Check: Base=1250. Fee=10. Surcharge(30% of 1250)=375. Total = 1250+10+375 = 1635)
+Sample 2
+Enter the movie name
+The Whale
+Enter the screen number
+B11
+Enter the no of tickets
+3
+Enter the ticket price
+150
+Enter the seating type
+Standard
+Output 2
+The ticket price is 456
+
+--------------------------------------------------------------------------------
