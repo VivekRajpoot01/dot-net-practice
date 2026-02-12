@@ -1,0 +1,24 @@
+Question 8: Regex & Collections
+Topic: List<T> Management with Validation Source Scenario: Modified from "Confidential Case Files"
+Scenario: Sam is working with confidential case files. He needs a system to add cases to a centralized list only if the Case Code is valid. He also needs to delete cases by ID.
+Requirements:
+1. Class Case:
+    ◦ Properties: CaseNo (int), CaseCode (string), CaseContent (string), Date (DateTime).
+2. Class Program:
+    ◦ Static List: public static List<Case> CaseFile = new List<Case>();
+    ◦ Method AddToList(Case caseObj):
+        ▪ Regex Validation: The CaseCode must start with "KN" followed strictly by 3 digits (e.g., "KN240").
+        ▪ Use System.Text.RegularExpressions.
+        ▪ If Valid: Add to CaseFile and return true.
+        ▪ If Invalid: Do not add, return false.
+    ◦ Method DeleteFromList(int caseNo):
+        ▪ Remove the case with the matching CaseNo. Return true if found/removed, else false.
+Sample Input (Add):
+1
+150
+KN240
+Drunk and Drive
+12/05/2009
+Sample Output:
+Added successfully
+(If CaseCode was "AB123", output should be "Adding failed")
