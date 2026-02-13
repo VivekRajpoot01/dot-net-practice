@@ -1,0 +1,49 @@
+Question: Word Frequency Counter (Ignoring Case and Punctuation)
+
+Problem Statement:
+
+You are required to write a program that counts the frequency of each word in a given paragraph.
+
+The program must follow these rules:
+
+The comparison should be case-insensitive (e.g., "Hello" and "hello" should be treated as the same word).
+
+All punctuation marks such as . , ! ? ; : ' " ( ) must be ignored.
+
+Words should be separated based on whitespace.
+
+The output should display each word along with its frequency.
+
+The words in the output should be displayed in alphabetical order.
+
+Input Format:
+
+A single line of text (string) containing words and punctuation.
+
+Output Format:
+
+Each line should display a word followed by its frequency in the format:
+
+word : frequency
+
+Sample Input:
+Hello world! Hello, OpenAI. This is a test. Hello world?
+
+Sample Output:
+a : 1
+hello : 3
+is : 1
+openai : 1
+test : 1
+this : 1
+world : 2
+
+Explanation:
+
+The word "Hello" appears three times (ignoring case and punctuation).
+
+The word "world" appears twice.
+
+All punctuation marks are removed before processing.
+
+Output is sorted alphabetically.
