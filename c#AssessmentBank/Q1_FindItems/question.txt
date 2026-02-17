@@ -1,0 +1,11 @@
+Q1
+Find Items (SortedDictionary)
+Work with SortedDictionary<string,long>, search by value, find min/max, and sort by sold count.
+Given: public static SortedDictionary<String, long> itemDetails (already provided in template).
+
+Method	Description
+FindItemDetails(long soldCount)	Return matching item(s) whose sold count equals soldCount. If not found return empty dictionary and print Invalid sold count in Main.
+FindMinandMaxSoldItems()	Return a List<string> where index 0 = minimum sold item name, index 1 = maximum sold item name.
+SortByCount()	Return all items sorted in ascending order by sold count (value).
+Main Flow: Get values from user → call methods → print results. If result is empty where specified, print the exact message.
+
