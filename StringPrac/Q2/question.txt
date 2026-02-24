@@ -1,0 +1,55 @@
+Question: Longest Substring Without Repeating Characters
+
+Problem Statement:
+
+Write a program to find the length of the longest substring in a given string that contains no repeating characters.
+
+A substring is a contiguous sequence of characters within a string.
+
+Requirements:
+
+The substring must contain unique characters only (no duplicates).
+
+The program should return the length of the longest such substring.
+
+The solution must handle both uppercase and lowercase characters distinctly.
+
+If the input string is empty, the output should be 0.
+
+Input Format:
+
+A single line containing a string.
+
+Output Format:
+
+A single integer representing the length of the longest substring without repeating characters.
+
+Sample Input 1:
+abcabcbb
+
+Sample Output 1:
+3
+
+Explanation:
+
+The longest substring without repeating characters is "abc" which has length 3.
+
+Sample Input 2:
+bbbbb
+
+Sample Output 2:
+1
+
+Explanation:
+
+The longest substring without repeating characters is "b".
+
+Sample Input 3:
+pwwkew
+
+Sample Output 3:
+3
+
+Explanation:
+
+The longest substring without repeating characters is "wke".
