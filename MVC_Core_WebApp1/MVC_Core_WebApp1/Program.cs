@@ -26,4 +26,10 @@ app.MapControllerRoute(
     .WithStaticAssets();
 
 
+//app.Run(async context =>
+//{
+//    await context.Response.WriteAsync("<h3>Middleware 1 called.</h2>");
+//});
+
+
 app.Run();
