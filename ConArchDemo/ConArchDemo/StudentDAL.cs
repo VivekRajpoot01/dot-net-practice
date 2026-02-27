@@ -69,19 +69,110 @@ namespace ConArchDemo
             {
                 con.Close();
             }
+            return studList;
         }
 
-        public Student SearchByName(string name)
+        public List<Student> SearchByName(string name)
+        {
+            List<Student> studList = null;
+            SqlParameter param1 = new SqlParameter("@Name", name);
+            //Code for connected arch below
+
+
+            try
+            {
+                con.Open();
+                cmd = new SqlCommand();
+                cmd.CommandText = "select * from StudentInfo where Name =@Name";
+                cmd.Connection = con;
+                cmd.CommandType = CommandType.Text;
+
+                //Param is to be added to command
+                cmd.Parameters.Add(param1);
+
+                //Holding data via Reader
+                sdr = cmd.ExecuteReader();
+
+                DataTable myDT = new DataTable();
+
+                myDT.Load(sdr);
+
+                //convert table into list
+                foreach (DataRow drow in myDT.Rows)
+                {
+                    Student sObj = new Student()
+                    {
+                        RollNo = Convert.ToInt32(drow[0].ToString()),
+                        Name = drow[1].ToString(),
+                        Address = drow[2].ToString()
+
+                    };
+
+                    if (sObj != null)
+                    {
+                        studList.Add(sObj);
+                    }
+                }
+            }
+            catch (SqlException e)
+            {
+                throw e;
+            }
+            finally
+            {
+                con.Close();
+            }
+        }
+
+        public List<Student> SearchByRollNo(int rollNo)
         {
             List<Student> studList = null;
             return studList;
         }
 
-        public Student SearchByRollNo(int rollNo)
+        public bool AddStudent(Student sObj)
         {
-            List<Student> studList = null;
-            return studList;
+            bool flag = false;
+
+            con.Open();
+            SqlParameter[] param = new SqlParameter[5];
+            for(int i=0; i<param.Length; i++)
+            {
+                param[i] = new SqlParameter();
+            }
+
+            param[0].ParameterName = "@RollNo";
+            param[0].Value = sObj.RollNo;
+
+            param[1].ParameterName = "@Age";
+            param[1].Value = sObj.Age;
+
+            param[2].ParameterName = "@Name";
+            param[2].Value = sObj.Name;
+
+            param[3].ParameterName = "@Phone";
+            param[3].Value = sObj.PhoneNo;
+
+            param[4].ParameterName = "@Addr";
+            param[4].Value = sObj.Address;
+
+            cmd = new SqlCommand();
+            cmd.CommandText = "Insert into StudentInfo(RollNo,name,age,perAddress,phoneNo) values(@RollNo,@Name,@Age,@Addr,@Phone");
+            cmd.Connection = con;
+            cmd.CommandType = CommandType.Text;
+             
+
+            cmd.Parameters.AddRange(param);
+
+            int RowCount = cmd.ExecuteNonQuery();
+
+            if (RowCount > 0)
+            {
+                flag = true;
+            }
+            return flag;
         }
+        
 
     }
 }
