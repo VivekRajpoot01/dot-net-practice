@@ -1,10 +1,17 @@
 using MVC_Assessment_07_03_26.DAL;
+using MVC_Assessment_07_03_26.Data;
+using Microsoft.EntityFrameworkCore; 
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<IBookRepository, MemoryBookRepository>();
+//builder.Services.AddScoped<IBookRepository, MemoryBookRepository>();
+
+builder.Services.AddDbContext<LibraryDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IBookRepository, SqlBookRepository>();
 
 var app = builder.Build();
 

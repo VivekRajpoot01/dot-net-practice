@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace MvcCore_DbFirstApproach.Models;
+
+public partial class Book
+{
+    public int BookId { get; set; }
+
+    public string Title { get; set; } = null!;
+
+    public string? Genre { get; set; }
+
+    public int? AuthorId { get; set; }
+
+    public virtual Author? Author { get; set; }
+
+    public virtual ICollection<BorrowRecord> BorrowRecords { get; set; } = new List<BorrowRecord>();
+}
