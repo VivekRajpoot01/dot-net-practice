@@ -23,7 +23,7 @@ namespace backend.Controllers
             return context.Students.ToList();
         }
 
-        // GET: api/students/5
+        // GET: api/students/1
         [HttpGet("{id}")]
         public ActionResult<Student> GetStudent(int id)
         {
@@ -47,7 +47,7 @@ namespace backend.Controllers
             return student;
         }
 
-        // PUT: api/students/5
+        // PUT: api/students/1
         [HttpPut("{id}")]
         public IActionResult UpdateStudent(int id, Student student)
         {

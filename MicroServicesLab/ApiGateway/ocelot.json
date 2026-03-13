@@ -1,0 +1,84 @@
+{
+    "Routes": [
+        {
+            "DownstreamPathTemplate": "/api/products/{everything}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5001
+                }
+            ],
+            "UpstreamPathTemplate": "/products/{everything}",
+            "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+            "FileCacheOptions": {
+                "TtlSeconds": 15,
+                "Region": "products"
+            },
+            "RateLimitOptions": {
+                "ClientWhitelist": [],
+                "EnableRateLimiting": true,
+                "Period": "1m",
+                "PeriodTimespan": 60,
+                "Limit": 100
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/api/orders/{everything}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5002
+                }
+            ],
+            "UpstreamPathTemplate": "/orders/{everything}",
+            "UpstreamHttpMethod": [ "GET", "POST", "PUT" ],
+            "RateLimitOptions": {
+                "EnableRateLimiting": true,
+                "Period": "1m",
+                "PeriodTimespan": 60,
+                "Limit": 50
+            }
+        },
+        {
+            "DownstreamPathTemplate": "/api/inventory/{everything}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5003
+                }
+            ],
+            "UpstreamPathTemplate": "/inventory/{everything}",
+            "UpstreamHttpMethod": [ "GET", "PUT" ]
+        },
+        {
+            "DownstreamPathTemplate": "/api/products/{everything}",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 5001
+                }
+            ],
+            "UpstreamPathTemplate": "/products/{everything}",
+            "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+            "QoSOptions": {
+                "ExceptionsAllowedBeforeBreaking": 3,
+                "DurationOfBreak": 10000,
+                "TimeoutValue": 5000
+            }
+        }
+
+    ],
+    "GlobalConfiguration": {
+        "BaseUrl": "http://localhost:5000",
+        "RateLimitOptions": {
+            "DisableRateLimitHeaders": false,
+            "QuotaExceededMessage": "Custom Quota Exceeded Message",
+            "HttpStatusCode": 429,
+            "ClientIdHeader": "ClientId"
+        }
+    }
+}
