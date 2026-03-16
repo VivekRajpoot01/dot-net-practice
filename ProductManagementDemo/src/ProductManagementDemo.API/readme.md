@@ -227,6 +227,3 @@ There is a `ProductManagementDemo.API.http` file intended for quickly calling th
 
 ---
 
-## License
-
-Add your license information here (e.g., MIT) if applicable.
