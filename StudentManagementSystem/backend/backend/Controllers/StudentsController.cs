@@ -1,83 +1,39 @@
-﻿using backend.Data;
+﻿using AutoMapper;
+using backend.DTOs;
 using backend.Models;
+using backend.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace backend.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class StudentsController : ControllerBase
     {
-        private readonly ApplicationDbContext context;
+        private readonly StudentService _service;
+        private readonly IMapper _mapper;
 
-        public StudentsController(ApplicationDbContext context)
+        public StudentsController(StudentService service, IMapper mapper)
         {
-            this.context = context;
+            _service = service;
+            _mapper = mapper;
         }
 
-        // GET: api/students
         [HttpGet]
-        public IEnumerable<Student> GetStudents()
+        public async Task<IActionResult> Get()
         {
-            return context.Students.ToList();
+            var students = await _service.GetAllAsync();
+            return Ok(_mapper.Map<List<StudentResponseDTO>>(students));
         }
 
-        // GET: api/students/1
-        [HttpGet("{id}")]
-        public ActionResult<Student> GetStudent(int id)
-        {
-            var student = context.Students.Find(id);
-
-            if (student == null)
-            {
-                return NotFound();
-            }
-
-            return student;
-        }
-
-        // POST: api/students
         [HttpPost]
-        public ActionResult<Student> CreateStudent(Student student)
+        public async Task<IActionResult> Create(StudentCreateDTO dto)
         {
-            context.Students.Add(student);
-            context.SaveChanges();
-
-            return student;
-        }
-
-        // PUT: api/students/1
-        [HttpPut("{id}")]
-        public IActionResult UpdateStudent(int id, Student student)
-        {
-            if (id != student.Id)
-            {
-                return BadRequest();
-            }
-
-            context.Entry(student).State = EntityState.Modified;
-
-            context.SaveChanges();
-
-            return NoContent();
-        }
-
-        // DELETE: api/students/5
-        [HttpDelete("{id}")]
-        public IActionResult DeleteStudent(int id)
-        {
-            var student = context.Students.Find(id);
-
-            if (student == null)
-            {
-                return NotFound();
-            }
-
-            context.Students.Remove(student);
-            context.SaveChanges();
-
-            return NoContent();
+            var student = _mapper.Map<Student>(dto);
+            await _service.AddAsync(student);
+            return Ok(student);
         }
     }
 }
