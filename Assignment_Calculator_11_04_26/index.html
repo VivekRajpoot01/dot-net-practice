@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Simple Calculator</h2>
+    <p>Trainer Name: <b>Pankaj Patil</b></p>
+
+    <input type="number" id="num1" placeholder="First Number">
+
+    <input type="number" id="num2" placeholder="Second Number">
+
+    <div class="btn-group">
+        <button class="add" onclick="add()">Add</button>
+
+        <button class="sub" onclick="subtract()">Subtract</button>
+
+        <button class="mul" onclick="multiply()">Multiply</button>
+        <button class="div" onclick="divide()">Divide</button>
+    </div>
+
+    <div class="result" id="result">Result will appear here</div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
