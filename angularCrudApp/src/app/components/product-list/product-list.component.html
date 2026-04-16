@@ -1,0 +1,146 @@
+<div class="container">
+  <h1>Product Management System</h1>
+  
+  <!-- Search and Add Section -->
+  <div class="actions-bar">
+    <div class="search-box">
+      <input 
+        type="text" 
+        [(ngModel)]="searchTerm" 
+        placeholder="Search by name or category..."
+        (keyup.enter)="searchProducts()"
+        class="search-input">
+      <button (click)="searchProducts()" class="btn btn-primary">Search</button>
+      <button (click)="resetSearch()" class="btn btn-secondary">Reset</button>
+    </div>
+    <button (click)="openAddForm()" class="btn btn-success">+ Add New Product</button>
+  </div>
+
+  <!-- Product Form Modal -->
+  <div *ngIf="showForm" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>{{ editingProduct ? 'Edit Product' : 'Add New Product' }}</h2>
+        <span class="close" (click)="closeForm()">&times;</span>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="saveProduct()">
+          <div class="form-group">
+            <label for="name">Product Name *</label>
+            <input 
+              type="text" 
+              id="name" 
+              [(ngModel)]="formData.name" 
+              name="name" 
+                  placeholder="Enter product name"
+              required>
+          </div>
+
+          <div class="form-group">
+            <label for="price">Price ($) *</label>
+            <input 
+              type="number" 
+              id="price" 
+              [(ngModel)]="formData.price" 
+              name="price" 
+              step="0.01"
+              placeholder="Enter price"
+              required>
+          </div>
+
+          <div class="form-group">
+            <label for="category">Category *</label>
+            <select id="category" [(ngModel)]="formData.category" name="category" required>
+              <option value="">Select category</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Kitchen">Kitchen</option>
+              <option value="Stationery">Stationery</option>
+              <option value="Clothing">Clothing</option>
+              <option value="Books">Books</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea 
+              id="description" 
+              [(ngModel)]="formData.description" 
+              name="description" 
+              rows="3"
+              placeholder="Enter product description"></textarea>
+          </div>
+
+          <div class="form-group checkbox">
+            <label>
+              <input type="checkbox" [(ngModel)]="formData.inStock" name="inStock">
+              In Stock
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" (click)="closeForm()" class="btn btn-secondary">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save Product</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Products Table -->
+  <div class="products-table-container">
+    <table class="products-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Price</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product.id }}</td>
+          <td><strong>{{ product.name }}</strong></td>
+          <td>{{ product.category }}</td>
+          <td class="price">${{ product.price.toFixed(2) }}</td>
+          <td class="description">{{ product.description }}</td>
+          <td>
+            <span [class]="'status-badge ' + getStockStatusClass(product.inStock)">
+              {{ product.inStock ? 'In Stock' : 'Out of Stock' }}
+            </span>
+          </td>
+          <td class="actions">
+            <button (click)="editProduct(product)" class="btn-icon btn-edit" title="Edit">✏️</button>
+            <button (click)="deleteProduct(product.id, product.name)" class="btn-icon btn-delete" title="Delete">🗑️</button>
+          </td>
+        </tr>
+        <tr *ngIf="products.length === 0">
+          <td colspan="7" class="no-data">No products found. Add some products!</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Statistics -->
+  <div class="stats" *ngIf="products.length > 0">
+    <div class="stat-card">
+      <h3>Total Products</h3>
+      <p class="stat-number">{{ products.length }}</p>
+    </div>
+    <div class="stat-card">
+      <h3>In Stock</h3>
+      <p class="stat-number">{{ products.filter(p => p.inStock).length }}</p>
+    </div>
+    <div class="stat-card">
+      <h3>Out of Stock</h3>
+      <p class="stat-number">{{ products.filter(p => !p.inStock).length }}</p>
+    </div>
+    <div class="stat-card">
+      <h3>Average Price</h3>
+      <p class="stat-number">${{ getAveragePrice() }}</p>
+    </div>
+  </div>
+</div>
